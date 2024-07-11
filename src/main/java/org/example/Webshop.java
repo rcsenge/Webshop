@@ -34,25 +34,25 @@ public class Webshop {
         List<String> namesForHardDrive = List.of("HDD", "SDD", "SSHDD");
         List<String> prefixesForHardDrive = List.of("120 GB", "240 GB", "500 GB", "1 TB", "2 TB", "3 TB", "4 TB");
         List<String> suffixesForHardDrive = List.of("", "10 000 rpm", "7 200 rpm", "5400 rpm");
-        List<List<String>> hardDriveLists = List.of(namesForHardDrive, prefixesForHardDrive, suffixesForHardDrive);
+        List<List<String>> hardDriveLists = List.of(prefixesForHardDrive, namesForHardDrive, suffixesForHardDrive);
         namesForTypes.put(Type.hard_drive, hardDriveLists);
 
         List<String> namesForMonitor = List.of("CRT", "LCD", "LED", "OLED");
         List<String> prefixesForMonitor = List.of("CRT", "LCD", "LED", "OLED");
         List<String> suffixesForMonitor = List.of("", "TN panel", "IPS panel");
-        List<List<String>> monitorLists = List.of(namesForMonitor, prefixesForMonitor, suffixesForMonitor);
+        List<List<String>> monitorLists = List.of(prefixesForMonitor, namesForMonitor, suffixesForMonitor);
         namesForTypes.put(Type.monitor, monitorLists);
 
         List<String> namesForKeyboard = List.of("hungarian keyboard", "english keyboard", "german keyboard");
         List<String> prefixesForKeyboard = List.of("", "Waterproof", "Gamer", "Mechanic");
         List<String> suffixesForKeyboard = List.of("PS2 plug", "USB plug", "USB / PS2 plug");
-        List<List<String>> keyboardLists = List.of(namesForKeyboard, prefixesForKeyboard, suffixesForKeyboard);
+        List<List<String>> keyboardLists = List.of(prefixesForKeyboard, namesForKeyboard, suffixesForKeyboard);
         namesForTypes.put(Type.keyboard, keyboardLists);
 
         List<String> namesForMouse = List.of("mechanic mouse", "optical mouse", "laser mouse");
         List<String> prefixesForMouse = List.of("Normal", "5-button", "Gamer", "Double-wheeled");
         List<String> suffixesForMouse = List.of("", "10 000 DPI sensitivity", "5 000 DPI sensitivity", "5 year warranty");
-        List<List<String>> mouseLists = List.of(namesForMouse, prefixesForMouse, suffixesForMouse);
+        List<List<String>> mouseLists = List.of(prefixesForMouse, namesForMouse, suffixesForMouse);
         namesForTypes.put(Type.mouse, mouseLists);
 
         List<String> namesForProcessor = List.of("Intel CPU", "AMD CPU");
@@ -66,7 +66,7 @@ public class Webshop {
         List<String> namesForGraphicCard = List.of("NVIDIA graphic card", "AMD graphic card", "Intel graphic card");
         List<String> prefixesForGraphicCard = List.of("DirectX 9", "DirectX 10", "DirectX 11", "DirectX 12");
         List<String> suffixesForGraphicCard = List.of("Gamer Edition", "including a PC game", "water-cooled", "5 year warranty");
-        List<List<String>> graphicCardLists = List.of(namesForGraphicCard, prefixesForGraphicCard, suffixesForGraphicCard);
+        List<List<String>> graphicCardLists = List.of(prefixesForGraphicCard, namesForGraphicCard, suffixesForGraphicCard);
         namesForTypes.put(Type.graphic_card, graphicCardLists);
 
         return namesForTypes;
@@ -116,7 +116,6 @@ public class Webshop {
             int randomIndex1 = r.nextInt(namesForProcessor.size());
 
             String processorName = namesForProcessor.get(randomIndex1);
-            nameElements.add(processorName);
 
             if (processorName.equals("Intel CPU")) {
                 List<String> prefixesForIntelCPU = listsForProcessor.get(1);
@@ -128,6 +127,7 @@ public class Webshop {
                 int randomIndex3 = r.nextInt(prefixesForAMDCPU.size());
                 nameElements.add(prefixesForAMDCPU.get(randomIndex3));
             }
+            nameElements.add(processorName);
 
             List<String> suffixesForProcessor = listsForProcessor.get(3);
             int randomIndex3 = r.nextInt(suffixesForProcessor.size());
