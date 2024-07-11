@@ -72,7 +72,7 @@ public class Webshop {
         return namesForTypes;
     }
 
-    public static Product createProduct(Map<Type, List<List<String>>> namesForTypes) { // set return type to product
+    public static Product createProduct(Map<Type, List<List<String>>> namesForTypes) {
         Product p = new Product();
         Random random = new Random();
 
